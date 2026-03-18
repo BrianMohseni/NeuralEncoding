@@ -1,9 +1,10 @@
 To install:
 
-1. install OpenMuse:
+1. install OpenMuse:|
+   
 ```pip install https://github.com/DominiqueMakowski/OpenMuse/zipball/main```
 
-2. download other requirements
+3. download other requirements
 
 ```pip install -r requirements.txt```
 
