@@ -4,7 +4,7 @@ To install:
    
 ```pip install https://github.com/DominiqueMakowski/OpenMuse/zipball/main```
 
-3. download other requirements
+2. download other requirements
 
 ```pip install -r requirements.txt```
 
