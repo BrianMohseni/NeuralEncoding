@@ -5,7 +5,7 @@ To install:
 
 2. download other requirements
 
-pip install -r requirements.txt
+```pip install -r requirements.txt```
 
 To connect to the Muse, and begin the server run:
 
