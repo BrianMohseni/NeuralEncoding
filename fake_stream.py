@@ -40,20 +40,20 @@ stream = StreamState()
 def _gen_eeg_sample(t):
     samples = []
     for _ in range(4):
-        delta = 18.0 * math.sin(2 * math.pi * 2.0  * t + random.uniform(0, 2 * math.pi))
-        theta = 12.0 * math.sin(2 * math.pi * 6.0  * t + random.uniform(0, 2 * math.pi))
+        delta = 18.0 * math.sin(2 * math.pi * 2.0 * t + random.uniform(0, 2 * math.pi))
+        theta = 12.0 * math.sin(2 * math.pi * 6.0 * t + random.uniform(0, 2 * math.pi))
         alpha = 20.0 * math.sin(2 * math.pi * 10.0 * t + random.uniform(0, 2 * math.pi))
-        beta  =  8.0 * math.sin(2 * math.pi * 20.0 * t + random.uniform(0, 2 * math.pi))
+        beta = 8.0 * math.sin(2 * math.pi * 20.0 * t + random.uniform(0, 2 * math.pi))
         signal = delta + theta + alpha + beta
         samples.append(800.0 + signal)
     return samples
 
 
-def _gen_optics_sample(t):
+def _gen_optics_sample():
     return [random.gauss(0.5, 0.05) for _ in range(4)]
 
 
-def _gen_accel_sample(t):
+def _gen_accel_sample():
     return (
         random.gauss(0.0, 0.02),
         random.gauss(0.0, 0.02),
@@ -61,7 +61,7 @@ def _gen_accel_sample(t):
     )
 
 
-def _gen_gyro_sample(t):
+def _gen_gyro_sample():
     return (
         random.gauss(0.0, 0.01),
         random.gauss(0.0, 0.01),
@@ -81,7 +81,7 @@ async def _simulate_optics():
     interval = 1.0 / SAMPLE_RATES["Optics"]
     while stream.active:
         t = time.time()
-        stream.push("Optics", {"ts": t, "channels": _gen_optics_sample(t)})
+        stream.push("Optics", {"ts": t, "channels": _gen_optics_sample()})
         await asyncio.sleep(interval)
 
 
@@ -89,8 +89,8 @@ async def _simulate_accgyro():
     interval = 1.0 / SAMPLE_RATES["Accel"]
     while stream.active:
         t = time.time()
-        ax, ay, az = _gen_accel_sample(t)
-        gx, gy, gz = _gen_gyro_sample(t)
+        ax, ay, az = _gen_accel_sample()
+        gx, gy, gz = _gen_gyro_sample()
         stream.push("Accel", {"ts": t, "x": ax, "y": ay, "z": az})
         stream.push("Gyro",  {"ts": t, "x": gx, "y": gy, "z": gz})
         await asyncio.sleep(interval)
