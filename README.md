@@ -12,4 +12,8 @@ To connect to the Muse, and begin the server run:
 
 ```python stream.py```
 
+or to run the simulated data:
+
+```python fake_stream.py```
+
 use `example.py` as a reference as to how to pull the data being streamed.
