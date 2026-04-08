@@ -2,15 +2,17 @@ Reminder: Please use conda. I know it is quite hefty and bloat-like, but its goo
 
 To install:
 
-1. install OpenMuse:
+1. clone the repository: ```git clone https://github.com/BrianMohseni/NeuralEncoding```
+
+2. install OpenMuse:
    
 ```pip install https://github.com/DominiqueMakowski/OpenMuse/zipball/main```
 
-2. download other requirements
+3. download other requirements
 
 ```pip install -r requirements.txt```
 
-To connect to the Muse, and begin the server run:
+4. To connect to the Muse, and begin the server run:
 
 ```python stream.py```
 
