@@ -2,3 +2,4 @@ torch
 fastapi
 uvicorn
 pylsl
+requessts
